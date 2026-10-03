@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050507">
+  <meta name="description" content="KEN SUPERB — aspiring frontend developer building modern, interactive web experiences.">
+  <title>KEN SUPERB — Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  <div class="loader" aria-hidden="true">
+    <div class="loader-mark">KS</div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="KEN SUPERB home">
+      <span class="brand-mark">KS</span>
+      <span class="brand-name">KEN SUPERB</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#work" data-i18n="nav.work">WORK</a>
+      <a href="#about" data-i18n="nav.about">ABOUT</a>
+      <a href="#lab" data-i18n="nav.lab">LAB</a>
+      <a href="#certificates" data-i18n="nav.certificates">CERTIFICATES</a>
+      <a href="#contact" data-i18n="nav.contact">CONTACT</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang-btn" id="langToggle" type="button" aria-label="Switch language">EN / RU</button>
+      <button class="menu-btn" id="menuToggle" type="button" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="hero.role">FRONTEND DEVELOPER</span></p>
+        <h1><span>KEN</span> <em>SUPERB</em></h1>
+        <p class="hero-lead" data-i18n="hero.lead">Building modern interfaces.<br>Learning. Creating. Improving.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#journey" data-i18n="hero.cta1">VIEW MY JOURNEY <span>↗</span></a>
+          <a class="btn btn-ghost magnetic" href="#contact" data-i18n="hero.cta2">CONTACT <span>↗</span></a>
+        </div>
+        <div class="tech-row" aria-label="Core technologies">
+          <span>HTML</span><span>CSS</span><span>JAVASCRIPT</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="orbital orbital-a"></div>
+        <div class="orbital orbital-b"></div>
+        <div class="orbital orbital-c"></div>
+        <div class="scene" id="scene">
+          <div class="shape">
+            <div class="shape-face face-front"></div>
+            <div class="shape-face face-back"></div>
+            <div class="shape-face face-left"></div>
+            <div class="shape-face face-right"></div>
+            <div class="shape-face face-top"></div>
+            <div class="shape-face face-bottom"></div>
+          </div>
+        </div>
+        <div class="visual-label label-top">&lt; 3D ELEMENT /&gt;<small>Interactive & responsive</small></div>
+        <div class="visual-label label-side"><span>IDEAS</span><span>CODE</span><span>WEBSITES</span><span>FUTURE</span></div>
+      </div>
+
+      <a class="scroll-cue" href="#about"><span data-i18n="hero.scroll">SCROLL TO EXPLORE</span><b>↓</b></a>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="section-index">01</div>
+      <div class="section-label" data-i18n="about.label">ABOUT ME</div>
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <h2><span data-i18n="about.title1">I’m</span> <em>KEN SUPERB.</em></h2>
+          <p data-i18n="about.text">An aspiring frontend developer creating clean, interactive, and visually striking websites. I have been programming since 2019 and am currently deepening my knowledge of JavaScript. I can turn your ideas into real-world interfaces.</p>
+          <div class="socials">
+            <a href="#" aria-label="Telegram">↗ Telegram</a>
+            <a href="#" aria-label="Instagram">↗ Instagram</a>
+            <a href="#" aria-label="Discord">↗ Discord</a>
+            <a href="#" aria-label="GitHub">↗ GitHub</a>
+          </div>
+          <div class="signature">Ken Superb</div>
+        </div>
+        <div class="status-card glass reveal">
+          <div class="card-head"><span data-i18n="status.title">CURRENT STATUS</span><i><b></b> <span data-i18n="status.learning">Learning</span></i></div>
+          <div class="status-main"><span>Frontend</span><a href="#lab" data-i18n="status.explore">EXPLORE →</a></div>
+          <div class="skill"><span>HTML</span><strong data-i18n="level.foundation">Foundation</strong><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          <div class="skill"><span>CSS</span><strong data-i18n="level.foundation">Foundation</strong><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          <div class="skill"><span>JavaScript</span><strong data-i18n="level.learning">Learning</strong><div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+          <div class="learning-box">
+            <small data-i18n="status.now">Currently learning</small>
+            <p>› JavaScript basics → advanced</p>
+            <p>› UI/UX principles</p>
+            <p>› Interactive web</p>
+          </div>
+        </div>
+        <div class="portrait reveal" aria-label="Stylized portrait placeholder">
+          <div class="portrait-ring"></div>
+          <div class="portrait-silhouette"></div>
+          <span>KEN / SUPERB</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey section" id="journey">
+      <div class="section-index">02</div>
+      <div class="section-label" data-i18n="journey.label">BUILDING IN PUBLIC</div>
+      <div class="journey-head">
+        <div>
+          <h2 data-i18n="journey.title">Small steps.<br><em>Big results.</em></h2>
+          <p data-i18n="journey.subtitle">A transparent learning path instead of pretending to have experience I don’t have yet.</p>
+        </div>
+        <div class="journey-object" aria-hidden="true">
+          <div class="mini-screen"></div><div class="mini-card"></div><div class="mini-card two"></div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item done"><span class="timeline-num">01</span><div><h3>HTML & CSS</h3><p data-i18n="journey.done">Foundation</p></div><b>✓ <span data-i18n="journey.completed">Completed</span></b></div>
+        <div class="timeline-item active"><span class="timeline-num">02</span><div><h3>JavaScript</h3><p data-i18n="journey.current">Currently learning</p></div><b>◉ <span data-i18n="journey.progress">In progress</span></b></div>
+        <div class="timeline-item"><span class="timeline-num">03</span><div><h3>Interactive UI</h3><p data-i18n="journey.next">Coming next</p></div><b>○ <span data-i18n="journey.planned">Planned</span></b></div>
+        <div class="timeline-item"><span class="timeline-num">04</span><div><h3 data-i18n="journey.first">First real project</h3><p data-i18n="journey.soon">Coming soon</p></div><b>○ <span data-i18n="journey.planned">Planned</span></b></div>
+      </div>
+    </section>
+
+    <section class="work section" id="work">
+      <div class="section-index">03</div>
+      <div class="section-label" data-i18n="work.label">SELECTED WORK</div>
+      <div class="empty-work reveal">
+        <span class="empty-code">01</span>
+        <div><h2 data-i18n="work.emptyTitle">First project<br><em>loading...</em></h2><p data-i18n="work.emptyText">This space is ready for your first real case study. The portfolio grows with you.</p></div>
+        <div class="empty-terminal"><span>STATUS</span><strong>BUILDING</strong><i></i></div>
+      </div>
+      <div class="project-template">
+        <!-- Duplicate .project-card when you add a project. Replace data in the card. -->
+        <article class="project-card glass">
+          <div class="project-number">01</div>
+          <div class="project-placeholder"><span>PROJECT<br>PREVIEW</span></div>
+          <div class="project-info"><p>COMING SOON</p><h3>Your first project</h3><span>HTML · CSS · JS</span></div>
+          <div class="project-arrow">↗</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lab section" id="lab">
+      <div class="section-index">04</div>
+      <div class="section-label" data-i18n="lab.label">KEN’S LAB</div>
+      <div class="lab-head"><h2 data-i18n="lab.title">Experiments<br><em>in progress.</em></h2><p data-i18n="lab.text">Small experiments become proof of skill before big projects arrive.</p></div>
+      <div class="lab-grid">
+        <article class="lab-card glass magnetic-card"><span>01</span><h3>CSS LIQUID</h3><p data-i18n="lab.one">Fluid hover interaction.</p><b>CSS</b></article>
+        <article class="lab-card glass magnetic-card"><span>02</span><h3>NEON CLOCK</h3><p data-i18n="lab.two">JavaScript time experiment.</p><b>JS</b></article>
+        <article class="lab-card glass magnetic-card"><span>03</span><h3>3D CARD</h3><p data-i18n="lab.three">Mouse tracking and depth.</p><b>CSS / JS</b></article>
+        <article class="lab-card glass magnetic-card"><span>04</span><h3>PARTICLES</h3><p data-i18n="lab.four">Canvas visual playground.</p><b>JS</b></article>
+      </div>
+    </section>
+
+    <section class="certificates section" id="certificates">
+      <div class="section-index">05</div>
+      <div class="section-label" data-i18n="cert.label">CERTIFICATIONS</div>
+      <div class="cert-head"><div><h2 data-i18n="cert.title">Proof of learning<br><em>and commitment.</em></h2></div><a class="btn btn-ghost" href="#contact" data-i18n="cert.add">ADD CERTIFICATE →</a></div>
+      <div class="cert-scroller">
+        <article class="certificate glass"><div class="cert-logo">CERT</div><p>HTML & CSS</p><small>Course completion certificate</small><strong>KEN SUPERB</strong><span>2026</span></article>
+        <article class="certificate glass"><div class="cert-logo">CERT</div><p>JavaScript Basics</p><small>Course completion certificate</small><strong>KEN SUPERB</strong><span>2026</span></article>
+        <article class="certificate glass placeholder-cert"><div>+</div><p data-i18n="cert.future">Future certificate</p><small data-i18n="cert.futureSub">Your next milestone</small></article>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="contact-orb"></div>
+      <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="contact.eyebrow">LET’S CONNECT</span></p>
+      <h2 data-i18n="contact.title">LET’S BUILD<br><em>SOMETHING INTERESTING.</em></h2>
+      <p data-i18n="contact.text">Open to learning, collaboration and first real projects.</p>
+      <a class="btn btn-primary big magnetic" href="mailto:your@email.com" data-i18n="contact.button">START A CONVERSATION ↗</a>
+      <div class="contact-links"><a href="#">Telegram</a><a href="#">Instagram</a><a href="#">Discord</a><a href="#">GitHub</a></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="brand-mark">KS</span><span>KEN SUPERB</span><span class="footer-line"></span><span data-i18n="footer.text">BUILDING THE NEXT VERSION.</span><a href="#top">↑</a>
+  </footer>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenu">×</button>
+    <a href="#work" data-i18n="nav.work">WORK</a><a href="#about" data-i18n="nav.about">ABOUT</a><a href="#lab" data-i18n="nav.lab">LAB</a><a href="#certificates" data-i18n="nav.certificates">CERTIFICATES</a><a href="#contact" data-i18n="nav.contact">CONTACT</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
