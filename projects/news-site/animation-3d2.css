@@ -1,0 +1,39 @@
+* {margin: 0;
+  box-sizing: border-box;
+}
+section {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+p {
+  padding: 20px 0;
+}
+.container {
+  perspective: 500px;
+  margin: 0 40px;
+  background: rgba(195,209,212,.7);
+  border-radius: 5px;
+}
+.style-flat {
+  width: 190px;
+  transform-style: flat;
+}
+.style-3d {
+  transform-style: preserve-3d;
+}
+.flip {
+
+  background-image: url(images/img3_edit.png);
+    height: 100px;
+    width: 190px;
+    border-radius: 5px;
+    transform: rotateX(45deg);
+    position: relative;
+    animation: rotate 5s infinite;
+}
+@keyframes rotate {
+  50% {
+    transform: rotateX(0deg);
+  }
+}

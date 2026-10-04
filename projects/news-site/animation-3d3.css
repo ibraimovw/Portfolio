@@ -1,0 +1,102 @@
+.B {
+  color: black;
+}
+@-o-keyframes anim {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@-moz-keyframes anim {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@-webkit-keyframes anim {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes anim {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+#wrapper {
+  width: 200px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: anim 16s linear infinite;
+  transform-style: preserve-3d;
+  position: relative;
+}
+#wrapper > div {
+  border: 1px solid black;
+    width: 145px;
+    text-align: center;
+    color: #ffffff;
+    height: 100px;
+    line-height: 183px;
+    font-size: 27px;
+    position: absolute;
+}
+@-o-keyframes rot1 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+@-moz-keyframes rot1 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+@-webkit-keyframes rot1 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+@keyframes rot1 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+#test1 {
+  transform: translateZ(300px);
+  background-color: #8e3a09;
+}
+#test2 {
+  transform: translateZ(-300px) rotateY(180deg);
+  background-color: #6d2176;
+}
+#test3 {
+  transform: translateX(300px) rotateY(90deg);
+  background-color: #b58224;
+}
+#test4 {
+  transform: translateX(-300px) rotateY(-90deg);
+  background-color: #83890e;
+}
