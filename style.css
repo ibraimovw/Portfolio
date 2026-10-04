@@ -173,3 +173,200 @@ button{font:inherit;color:inherit}
   .portrait { height: 370px; }
   .portrait-frame { width: 270px; height: 350px; }
 }
+
+/* =====================================================
+   KEN'S LAB — real projects
+   The projects themselves live in /projects and are not edited.
+   ===================================================== */
+.projects-lab-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.project-lab-card {
+  position: relative;
+  min-height: 430px;
+  padding: 0 !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+}
+
+.lab-preview {
+  position: relative;
+  height: 205px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+  background: #0a0a0d;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.lab-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,45,104,.30), rgba(99,91,255,.18) 48%, rgba(5,5,7,.8));
+  mix-blend-mode: screen;
+}
+
+.lab-preview::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff2d68, #635bff, transparent);
+  box-shadow: 0 0 18px rgba(255,45,104,.7);
+}
+
+.lab-preview span,
+.lab-preview i {
+  position: relative;
+  z-index: 2;
+}
+
+.lab-preview span {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: 14px;
+}
+
+.lab-preview i {
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: .16em;
+  padding: 7px 9px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(5,5,7,.45);
+  backdrop-filter: blur(8px);
+}
+
+.image-preview {
+  background-position: center;
+  background-size: cover;
+}
+
+.transform-preview {
+  background:
+    linear-gradient(135deg, transparent 0 48%, rgba(184,61,255,.8) 49% 50%, transparent 51%),
+    radial-gradient(circle at 25% 30%, rgba(0,220,255,.75), transparent 20%),
+    #08080c;
+}
+
+.transform-preview::before {
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,45,104,.11) 15px 16px);
+}
+
+.calculator-preview {
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: radial-gradient(circle at center, rgba(99,91,255,.3), transparent 55%), #050507;
+}
+
+.calculator-preview span {
+  font-size: 70px;
+  font-weight: 300;
+  letter-spacing: -.06em;
+}
+
+.calculator-preview i {
+  color: #ff2d68;
+  font-size: 28px;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 20px 0;
+  color: rgba(244,244,245,.48);
+  font-size: 10px;
+  letter-spacing: .15em;
+}
+
+.project-meta b { color: rgba(244,244,245,.72); font-weight: 600; }
+
+.project-lab-card h3 {
+  margin: 9px 20px 7px;
+  font-size: 22px;
+  letter-spacing: -.02em;
+}
+
+.project-lab-card > p {
+  margin: 0 20px;
+  color: rgba(244,244,245,.58);
+  line-height: 1.65;
+  font-size: 13px;
+  max-width: 600px;
+}
+
+.project-tags {
+  margin: auto 20px 20px;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.project-tags b,
+.project-tags a {
+  font-size: 9px;
+  letter-spacing: .12em;
+  padding: 7px 9px;
+  border: 1px solid rgba(255,255,255,.10);
+  color: rgba(244,244,245,.58);
+  background: rgba(255,255,255,.025);
+}
+
+.project-tags a {
+  margin-left: auto;
+  color: #fff;
+  border-color: rgba(255,45,104,.45);
+  background: rgba(255,45,104,.08);
+  transition: .25s ease;
+}
+
+.project-tags a:hover {
+  color: #050507;
+  background: #ff2d68;
+  border-color: #ff2d68;
+  box-shadow: 0 0 22px rgba(255,45,104,.28);
+}
+
+.lab-counter {
+  min-width: 105px;
+  text-align: right;
+  padding-top: 12px;
+}
+
+.lab-counter span {
+  display: block;
+  font: 700 42px/1 "Space Grotesk", sans-serif;
+  letter-spacing: -.06em;
+}
+
+.lab-counter small {
+  color: rgba(244,244,245,.4);
+  font-size: 9px;
+  letter-spacing: .18em;
+}
+
+@media (max-width: 850px) {
+  .projects-lab-grid { grid-template-columns: 1fr; }
+  .project-lab-card { min-height: 410px; }
+}
+
+@media (max-width: 560px) {
+  .lab-head { align-items: flex-start; }
+  .lab-counter { min-width: 70px; }
+  .lab-counter span { font-size: 30px; }
+  .lab-preview { height: 175px; }
+  .project-lab-card h3 { font-size: 19px; }
+}
