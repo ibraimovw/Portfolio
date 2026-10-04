@@ -1,0 +1,172 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1100px;
+	margin: 0px auto;
+}
+.logo{
+	background: #EEEEEE;
+    color: #C60304;
+}
+.logo-name{
+	font-size: 33px;
+}
+header{
+	background-color: #EEEEEE;
+}
+.nav-middle{
+	background: #C60304;
+}
+.nav-bottom{
+	background: #E6E6E6;
+	padding: 0px 0px 0px 155px;
+}
+.nav-bottom ul{
+	display: block;
+}
+.logo p{
+	display: inline-block;
+	margin: 5px 628px 0px 0px;
+}
+li{
+	display: inline-block;
+}
+.AAAA{
+    padding: 10px;
+    font-size: 19px;
+	background: #7D0202;
+}
+.AAAA2{
+	text-decoration: underline;
+	margin: 8px 36px 8px 0px;
+	display: block;
+    font-size: 16px;
+    color: #666666;
+}
+.AAAA2:hover{
+	text-decoration: none;
+}
+.AAAA3{
+	text-decoration: underline;
+	color: #666666;
+}
+.AAAA3:hover{
+	text-decoration: none;
+}
+.nav-middle a{
+	padding: 10px;
+	font-size: 19px;
+	display: block;
+	text-decoration: none;
+	color: white;
+}
+.nav-middle a:hover{
+	background: #7D0202;
+}
+b{
+	color: #666666;
+}
+.right{
+	color: #666666;
+	display: inline-block;
+ 	padding: 0px 0px 0px 236px;
+}
+.one{
+	float: left;
+	margin-right: 15px;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	width: 560px;
+}
+.one h1{
+	font-size: 24px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+.one h2{
+	font-size: 19px;
+	margin-top: 20px;
+}
+.one p{
+	margin-bottom: 10px;
+}
+.one img{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.two{
+	float: left;
+	margin-right: 15px;
+	margin-top: 15px;
+	width: 242px;
+}
+.two h2{
+	font-size: 17px;
+	margin-top: 30px;
+    margin-bottom: 10px;
+}
+.two p{
+	font-size: 13px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.three{
+	float: left;
+	margin-top: 15px;
+	width: 242px;
+}
+.three h2{
+	font-size: 17px;
+	margin-top: 30px;
+    margin-bottom: 10px;
+}
+.three p{
+	font-size: 13px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.clearfix{
+	clear: both;
+}
+footer{
+	height: 250px;
+	background: #EEEEEE;
+}
+.one2{
+	float: left;
+	width: 200px;
+	margin-top: 15px;
+}
+.one2 a{
+	text-decoration: none;
+	color: #666666;
+}
+.one2 a:hover{
+	text-decoration: underline;
+}
+.one2 li{
+	margin-top: 15px;
+}
+.two2{
+	float: left;
+	margin-top: 30px;
+	margin-left: 55px;
+}
+.two2 h2{
+	color: #666666;
+	font-size: 20px;
+	text-align: center;
+}
+.two2 p{
+	color: #666666;
+	margin-bottom: 5px;
+	font-size: 13px;
+    text-align: center;
+}
+.two2 hr{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

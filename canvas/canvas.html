@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+  <link rel="stylesheet" href="canvas.css">
+	<script type="application/javascript">
+
+//     function draw() {
+//       let canvas = document.getElementById("canvas");
+//       if (canvas.getContext) {
+//         let ctx = canvas.getContext("2d");
+
+//         ctx.fillStyle = "rgb(200,0,0)";
+//         ctx.fillRect (10, 10,70, 70);
+
+//         ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+//         ctx.fillRect (130, 10, 70, 70);
+
+//         ctx.fillStyle = "rgba(0, 0, 334, 0.5)";
+//         ctx.fillRect (60, 90, 70, 70);
+
+//         ctx.fillStyle = "rgba(200, 0, 200, 0.5)";
+//         ctx.fillRect (70, 70, 70, 70);
+
+//         ctx.fillStyle = "rgba(120, 200, 200, 0.5)";
+//         ctx.fillRect (90, 90, 70, 70);
+
+//         ctx.fillStyle = "rgba(100, 0, 200, 0.5)";
+//         ctx.fillRect (110, 110, 70, 70);
+
+//         ctx.fillStyle = "rgba(0, 200, 200, 0.5)";
+//         ctx.fillRect (130, 130, 70, 70);
+
+//         ctx.fillStyle = "rgba(0, 150, 200, 0.5)";
+//         ctx.fillRect (150, 150, 70, 70);
+//       }
+//     }
+//     function draw() {
+//   var canvass = document.getElementById('canvass');
+//   if (canvas.getContext){
+//      var ctxx = canvass.getContext('2d');
+
+//     ctxx.beginPath();
+//     ctxx.arc(75,75,50,0,Math.PI*2,true); // Внешняя окружность
+//     ctxx.moveTo(110,75);
+//     ctxx.arc(75,75,35,0,Math.PI,false);  // рот (по часовой стрелке)
+//     ctxx.moveTo(65,65);
+//     ctxx.arc(60,65,5,0,Math.PI*2,true);  // Левый глаз
+//     ctxx.moveTo(95,65);
+//     ctxx.arc(90,65,5,0,Math.PI*2,true);  // Правый глаз
+//     ctxx.stroke();
+//   }
+// }
+// function draw() {
+//   var canvasss = document.getElementById('canvasss');
+//   if (canvasss.getContext){
+//     var ctxxx = canvas.getContext('2d');
+
+//     // Filled triangle
+//     ctxxx.beginPath();
+//     ctxxx.moveTo(25,25);
+//     ctxxx.lineTo(105,25);
+//     ctxxx.lineTo(25,105);
+//     ctxxx.fill();
+
+//     // Stroked triangle
+//     ctxxx.beginPath();
+//     ctxxx.moveTo(125,125);
+//     ctxxx.lineTo(125,45);
+//     ctxxx.lineTo(45,125);
+//     ctxxx.closePath();
+//     ctxxx.stroke();
+//   }
+// }
+
+// function draww() {
+//   var canvass = document.getElementById('can');
+//   if (canvas.getContext){
+//     var ctxx = canvas.getContext('2d');
+
+//     roundedRect(ctx,12,12,150,150,15);
+//     roundedRect(ctx,19,19,150,150,9);
+//     roundedRect(ctx,53,53,49,33,10);
+//     roundedRect(ctx,53,119,49,16,6);
+//     roundedRect(ctx,135,53,49,33,10);
+//     roundedRect(ctx,135,119,25,49,10);
+
+//     ctxx.beginPath();
+//     ctxx.arc(37,37,13,Math.PI/7,-Math.PI/7,false);
+//     ctxx.lineTo(31,37);
+//     ctxx.fill();
+
+//     for(var i=0;i<8;i++){
+//       ctxx.fillRect(51+i*16,35,4,4);
+//     }
+
+//     for(i=0;i<6;i++){
+//       ctxx.fillRect(115,51+i*16,4,4);
+//     }
+
+//     for(i=0;i<8;i++){
+//       ctxx.fillRect(51+i*16,99,4,4);
+//     }
+
+//     ctxx.beginPath();
+//     ctxx.moveTo(83,116);
+//     ctxx.lineTo(83,102);
+//     ctxx.bezierCurveTo(83,94,89,88,97,88);
+//     ctxx.bezierCurveTo(105,88,111,94,111,102);
+//     ctxx.lineTo(111,116);
+//     ctxx.lineTo(106.333,111.333);
+//     ctxx.lineTo(101.666,116);
+//     ctxx.lineTo(97,111.333);
+//     ctxx.lineTo(92.333,116);
+//     ctxx.lineTo(87.666,111.333);
+//     ctxx.lineTo(83,116);
+//     ctxx.fill();
+
+//     ctxx.fillStyle = "white";
+//     ctxx.beginPath();
+//     ctxx.moveTo(91,96);
+//     ctxx.bezierCurveTo(88,96,87,99,87,101);
+//     ctxx.bezierCurveTo(87,103,88,106,91,106);
+//     ctxx.bezierCurveTo(94,106,95,103,95,101);
+//     ctxx.bezierCurveTo(95,99,94,96,91,96);
+//     ctxx.moveTo(103,96);
+//     ctxx.bezierCurveTo(100,96,99,99,99,101);
+//     ctxx.bezierCurveTo(99,103,100,106,103,106);
+//     ctxx.bezierCurveTo(106,106,107,103,107,101);
+//     ctxx.bezierCurveTo(107,99,106,96,103,96);
+//     ctxx.fill();
+
+//     ctxx.fillStyle = "black";
+//     ctxx.beginPath();
+//     ctxx.arc(101,102,2,0,Math.PI*2,true);
+//     ctxx.fill();
+
+//     ctxx.beginPath();
+//     ctxx.arc(89,102,2,0,Math.PI*2,true);
+//     ctxx.fill();
+//   }
+// }
+
+// // A utility function to draw a rectangle with rounded corners.
+
+// function roundedRect(ctx, x, y, width, height, radius) {
+//   ctx.beginPath();
+//   ctx.moveTo(x, y + radius);
+//   ctx.arcTo(x, y + height, x + radius, y + height, radius);
+//   ctx.arcTo(x + width, y + height, x + width, y + height - radius, radius);
+//   ctx.arcTo(x + width, y, x + width - radius, y, radius);
+//   ctx.arcTo(x, y, x, y + radius, radius);
+//   ctx.stroke();
+// }
+
+// //Эльдар
+// function draw() {
+//   var ctx = document.getElementById('canvas').getContext('2d');
+//   ctx.font = "200px serif";
+//   ctx.strokeText("Эльдар чурка", 100, 220);
+// }
+
+
+// function draw() {
+//   var ctx = document.getElementById('canvas').getContext('2d');
+//   for (var i = 0; i < 50; i++) {
+//     for (var j = 0; j < 50; j++) {
+//       ctx.save();
+//       ctx.fillStyle = 'rgb(' + (4 * i) + ', ' + (255 - 41 * i) + ', 255)';
+//       ctx.translate(10 + j * 50, 10 + i * 50);
+//       ctx.fillRect(0, 0, 25, 25);
+//       ctx.restore();
+//     }
+//   }
+// }
+
+
+
+// function draw() {
+//   var ctx = document.getElementById('canvas').getContext('2d');
+
+//   var sin = Math.sin(Math.PI / 6);
+//   var cos = Math.cos(Math.PI / 6);
+//   ctx.translate(100, 100);
+//   var c = 0;
+//   for (var i = 0; i <= 12; i++) {
+//     c = Math.floor(255 / 19 * i);
+//     ctx.fillStyle = 'rgb(' + c + ', ' + c + ', ' + c + ')';
+//     ctx.fillRect(0, 0, 100, 10);
+//     ctx.transform(cos, sin, -sin, cos, 0, 0);
+//   }
+
+//   ctx.setTransform(-1, 0, 0, 1, 100, 100);
+//   ctx.fillStyle = 'rgba(255, 128, 255, 0.5)';
+//   ctx.fillRect(0, 50, 100, 100);
+// }
+
+
+
+//ЭЛЬДУУРРРР
+// var sun = new Image();
+// var moon = new Image();
+// var earth = new Image();
+// function init(){
+//   sun.src = 'roma.jpg';
+//   moon.src = 'https://cdn2.downdetector.com/static/uploads/logo/Tiktok_logo.png';
+//   earth.src = 'eldarr.jpg';
+//   window.requestAnimationFrame(draw);
+// }
+
+// function draw() {
+//   var ctx = document.getElementById('canvas').getContext('2d');
+
+//   ctx.globalCompositeOperation = 'destination-over';
+//   ctx.clearRect(0,0,300,300); // clear canvas
+
+//   ctx.fillStyle = 'rgba(0,0,0,0.4)';
+//   ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+//   ctx.save();
+//   ctx.translate(150,150);
+
+//   // Earth
+//   var time = new Date();
+//   ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+//   ctx.translate(105,0);
+//   ctx.fillRect(0,0,50,0); // Shadow
+//   ctx.drawImage(earth,-12,-12, 35, 35);
+
+//   // Moon
+//   ctx.save();
+//   ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
+//   ctx.translate(0,28.5);
+//   ctx.drawImage(moon,-3.5,-3.5, 15,15);
+//   ctx.restore();
+
+//   ctx.restore();
+
+//   ctx.beginPath();
+//   ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit
+//   ctx.stroke();
+
+//   ctx.drawImage(sun,110,115,80,80);
+
+//   window.requestAnimationFrame(draw);
+// }
+
+// init();
+
+
+
+  </script>
+ </head>
+ <body onload="draw();">
+ 		<!-- <canvas id="canvass"S></canvas> -->
+ 		<canvas id="canvas"></canvas>
+ 		<audio preload="true" id="collide">
+ 	<source src="inecraft_hit_sound.mp3">
+	<source src="inecraft_damage.mp3">
+	
+</audio>
+   <script src="script.js"></script>
+ </body>
+</html>

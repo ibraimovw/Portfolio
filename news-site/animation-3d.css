@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 200px;
+  background: violet;
+}
+.wrapper div {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 100px;
+  backface-visibility: visible;
+  color: #ffffff;
+}
+@-o-keyframes anim {
+  from {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 180deg);
+  }
+}
+@-moz-keyframes anim {
+  from {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 180deg);
+  }
+}
+@-webkit-keyframes anim {
+  from {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 180deg);
+  }
+}
+@keyframes anim {
+  from {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 180deg);
+  }
+}
+.wrapper {
+  transform-style: preserve-3d;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  animation: anim 4s ease infinite alternate;
+}
+.top {
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+  background: blue;
+  position: absolute;
+  top: -100px;
+  left: 0px;
+}
+.top-back {
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+  background: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.left {
+  background: yellow;
+  position: absolute;
+  top: 0px;
+  left: -100px;
+  transform: rotateY(-90deg);
+  transform-origin: right;
+}
+.right {
+  background: orange;
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  transform: rotateY(90deg);
+  transform-origin: left;
+}
+.center {
+  background: red;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.center-back {
+  background: green;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate3d(0, 0, -100px);
+}
