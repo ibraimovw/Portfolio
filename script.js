@@ -1,5 +1,5 @@
 /* =====================================================
-   KEN SUPERB — simple JavaScript
+   AMiR IBRAIMOVW — simple JavaScript
    Здесь нет фреймворков: только обычный JavaScript.
    ===================================================== */
 
@@ -10,7 +10,7 @@ const translations = {
     "hero.role":"FRONTEND DEVELOPER", "hero.lead":"Building modern interfaces.<br>Learning. Creating. Improving.",
     "hero.cta1":"VIEW MY JOURNEY ↗", "hero.cta2":"CONTACT ↗", "hero.scroll":"SCROLL TO EXPLORE",
     "about.label":"ABOUT ME", "about.title1":"I’m",
-    "about.text":"An aspiring frontend developer focused on building clean, interactive and visually distinctive websites. Currently mastering JavaScript and turning ideas into real interfaces.",
+    "about.text":"Junior frontend developer, doing web programming since 2020. I build clean, interactive and visually distinctive websites. Currently deepening my JavaScript knowledge and turning your ideas into real interfaces.",
     "status.title":"CURRENT STATUS", "status.learning":"Learning", "status.explore":"EXPLORE →",
     "level.foundation":"Foundation", "level.learning":"Learning", "status.now":"Currently learning",
     "journey.label":"BUILDING IN PUBLIC", "journey.title":"Small steps.<br><em>Big results.</em>",
@@ -18,10 +18,10 @@ const translations = {
     "journey.done":"Foundation", "journey.completed":"Completed", "journey.current":"Currently learning",
     "journey.progress":"In progress", "journey.next":"Coming next", "journey.planned":"Planned",
     "journey.first":"First real project", "journey.soon":"Coming soon",
-    "work.label":"SELECTED WORK", "work.emptyTitle":"First project<br><em>loading...</em>",
-    "work.emptyText":"This space is ready for your first real case study. The portfolio grows with you.",
-    "lab.label":"KEN’S LAB", "lab.title":"Experiments<br><em>in progress.</em>",
-    "lab.text":"A collection of real frontend exercises and websites. The original project code stays untouched.",
+    "work.label":"SELECTED WORK", "work.emptyTitle":"First project<br><em>loading...</em>", "work.cardTitle":"My first project",
+    "work.emptyText":"A full project will appear here soon...",
+    "lab.label":"IBR LAB", "lab.title":"Experiments<br><em>in progress.</em>",
+    "lab.text":"A collection of frontend experiments and websites built while learning.",
     "project.canvas":"A browser game built with Canvas API, animation loops, collision logic, mouse control and hit effects.",
     "project.cyberpunk":"A themed promotional landing page with game information, product blocks, forms and a strong visual identity.",
     "project.pchela":"An informational honey and beekeeping website with navigation, content sections and a traditional multi-block layout.",
@@ -33,8 +33,7 @@ const translations = {
     "lab.one":"Fluid hover interaction.", "lab.two":"JavaScript time experiment.",
     "lab.three":"Mouse tracking and depth.", "lab.four":"Canvas visual playground.",
     "cert.label":"CERTIFICATIONS", "cert.title":"Proof of learning<br><em>and commitment.</em>",
-    "cert.text":"Add your real course certificates here. No invented credentials.",
-    "cert.add":"ADD CERTIFICATE →", "cert.future":"Future certificate", "cert.futureSub":"Your next milestone",
+    "cert.future":"Future certificate", "cert.futureSub":"Next milestone",
     "contact.eyebrow":"LET’S CONNECT", "contact.title":"LET’S BUILD<br><em>SOMETHING INTERESTING.</em>",
     "contact.text":"Open to learning, collaboration and first real projects.",
     "contact.button":"START A CONVERSATION ↗", "footer.text":"BUILDING THE NEXT VERSION."
@@ -44,7 +43,7 @@ const translations = {
     "hero.role":"FRONTEND РАЗРАБОТЧИК", "hero.lead":"Создаю современные интерфейсы.<br>Изучаю. Создаю. Развиваюсь.",
     "hero.cta1":"МОЙ ПУТЬ ↗", "hero.cta2":"СВЯЗАТЬСЯ ↗", "hero.scroll":"ЛИСТАЙТЕ ДАЛЬШЕ",
     "about.label":"ОБО МНЕ", "about.title1":"Я —",
-    "about.text":"Начинающий frontend-разработчик, который делает чистые, интерактивные и визуально выразительные сайты. Сейчас углубляю JavaScript и превращаю идеи в реальные интерфейсы.",
+    "about.text":"Junior frontend-разработчик, занимаюсь web программированием с 2020 года. Делаю чистые, интерактивные и визуально выразительные сайты. Сейчас углубляю знания JavaScript. Могу превратить ваши задумки в реальные интерфейсы.",
     "status.title":"ТЕКУЩИЙ СТАТУС", "status.learning":"Изучаю", "status.explore":"СМОТРЕТЬ →",
     "level.foundation":"Основа", "level.learning":"Изучение", "status.now":"Сейчас изучаю",
     "journey.label":"РАЗВИТИЕ", "journey.title":"Маленькие шаги.<br><em>Большие результаты.</em>",
@@ -52,30 +51,29 @@ const translations = {
     "journey.done":"Основа", "journey.completed":"Завершено", "journey.current":"Изучаю сейчас",
     "journey.progress":"В процессе", "journey.next":"Следующий этап", "journey.planned":"Запланировано",
     "journey.first":"Первый реальный проект", "journey.soon":"Скоро",
-    "work.label":"ИЗБРАННЫЕ РАБОТЫ", "work.emptyTitle":"Первый проект<br><em>загружается...</em>",
-    "work.emptyText":"Здесь появится твой первый полноценный кейс. Портфолио будет расти вместе с тобой.",
-    "lab.label":"ЛАБОРАТОРИЯ KEN", "lab.title":"Эксперименты<br><em>в процессе.</em>",
-    "lab.text":"Подборка реальных учебных проектов и сайтов. Исходный код каждого проекта оставлен без изменений.",
+    "work.label":"ИЗБРАННЫЕ РАБОТЫ", "work.emptyTitle":"Первый проект<br><em>загружается...</em>", "work.cardTitle":"Мой первый проект",
+    "work.emptyText":"Скоро здесь появится полноценный проект..",
+    "lab.label":"ЛАБОРАТОРИЯ IBR", "lab.title":"Эксперименты<br><em>в процессе.</em>",
+    "lab.text":"Подборка frontend-экспериментов и сайтов, созданных в процессе обучения.",
     "project.canvas":"Браузерная игра на Canvas API: игровой цикл, столкновения, управление мышью и эффекты попаданий.",
     "project.cyberpunk":"Промо-лендинг в стиле Cyberpunk 2077 с информацией об игре, товарными блоками, формой и сильной визуальной подачей.",
     "project.pchela":"Информационный сайт о мёде и пчеловодстве с навигацией, контентными секциями и классической блочной версткой.",
     "project.task1":"Лендинг для бизнеса с блоками услуг, ценами, отзывами, контактами и адаптивной версткой.",
     "project.news":"Классическая новостная главная страница с категориями, статьями, галереей, боковыми блоками и CSS 3D-экспериментами.",
-    "project.transforms":"Небольшая CSS-лаборатория с translate, scale, rotate, skew и matrix, которые демонстрируются через hover-анимации.",
+    "project.transforms":"Тренировка hover-анимаций с практикой translate, scale, rotate, skew и matrix.",
     "project.calculator":"Рабочий калькулятор с интерфейсом в стиле мобильного приложения и JavaScript-логикой арифметических операций.",
     "project.pallet":"Полноценный коммерческий сайт-концепт компании по продаже поддонов: товары, услуги, преимущества, партнёры и контакты.",
     "lab.one":"Плавная hover-анимация.", "lab.two":"Эксперимент со временем на JS.",
     "lab.three":"Отслеживание мыши и глубина.", "lab.four":"Визуальный playground на Canvas.",
     "cert.label":"СЕРТИФИКАТЫ", "cert.title":"Подтверждение обучения<br><em>и дисциплины.</em>",
-    "cert.text":"Добавь сюда реальные сертификаты курсов. Никаких выдуманных credentials.",
-    "cert.add":"ДОБАВИТЬ СЕРТИФИКАТ →", "cert.future":"Будущий сертификат", "cert.futureSub":"Следующий этап",
+    "cert.future":"Будущий сертификат", "cert.futureSub":"Следующий этап",
     "contact.eyebrow":"ДАВАЙТЕ НА СВЯЗЬ", "contact.title":"СОЗДАДИМ<br><em>ЧТО-ТО ИНТЕРЕСНОЕ.</em>",
     "contact.text":"Открыт к обучению, сотрудничеству и первым реальным проектам.",
     "contact.button":"НАПИСАТЬ ↗", "footer.text":"СОЗДАЮ СЛЕДУЮЩУЮ ВЕРСИЮ."
   }
 };
 
-let currentLanguage = localStorage.getItem("ken-lang") || "en";
+let currentLanguage = localStorage.getItem("amir-ibr-lang") || "en";
 const languageButton = document.getElementById("langToggle");
 
 function changeLanguage() {
@@ -88,7 +86,7 @@ function changeLanguage() {
   });
 
   languageButton.textContent = currentLanguage === "en" ? "EN / RU" : "RU / EN";
-  localStorage.setItem("ken-lang", currentLanguage);
+  localStorage.setItem("amir-ibr-lang", currentLanguage);
 }
 
 languageButton.addEventListener("click", function() {
