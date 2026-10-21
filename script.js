@@ -1,81 +1,128 @@
-/* =====================================================
-   AMiR IBRAIMOVW — simple JavaScript
-   Здесь нет фреймворков: только обычный JavaScript.
-   ===================================================== */
-
-// ---------- 1. Переключение языка ----------
 const translations = {
   en: {
-    "nav.work":"WORK", "nav.about":"ABOUT", "nav.lab":"LAB", "nav.certificates":"CERTIFICATES", "nav.contact":"CONTACT",
-    "hero.role":"FRONTEND DEVELOPER", "hero.lead":"Building modern interfaces.<br>Learning. Creating. Improving.",
-    "hero.cta1":"VIEW MY JOURNEY ↗", "hero.cta2":"CONTACT ↗", "hero.scroll":"SCROLL TO EXPLORE",
-    "about.label":"ABOUT ME", "about.title1":"I’m",
-    "about.text":"Junior frontend developer, doing web programming since 2020. I build clean, interactive and visually distinctive websites. Currently deepening my JavaScript knowledge and turning your ideas into real interfaces.",
-    "status.title":"CURRENT STATUS", "status.learning":"Learning", "status.explore":"EXPLORE →",
-    "level.foundation":"Foundation", "level.learning":"Learning", "status.now":"Currently learning",
-    "journey.label":"BUILDING IN PUBLIC", "journey.title":"Small steps.<br><em>Big results.</em>",
-    "journey.subtitle":"A transparent learning path instead of pretending to have experience I don’t have yet.",
-    "journey.done":"Foundation", "journey.completed":"Completed", "journey.current":"Currently learning",
-    "journey.progress":"In progress", "journey.next":"Coming next", "journey.planned":"Planned",
-    "journey.first":"First real project", "journey.soon":"Coming soon",
-    "work.label":"SELECTED WORK", "work.emptyTitle":"First project<br><em>loading...</em>", "work.cardTitle":"My first project",
-    "work.emptyText":"A full project will appear here soon...",
-    "lab.label":"IBR LAB", "lab.title":"Experiments<br><em>in progress.</em>",
-    "lab.text":"A collection of frontend experiments and websites built while learning.",
-    "project.canvas":"A browser game built with Canvas API, animation loops, collision logic, mouse control and hit effects.",
-    "project.cyberpunk":"A themed promotional landing page with game information, product blocks, forms and a strong visual identity.",
-    "project.pchela":"An informational honey and beekeeping website with navigation, content sections and a traditional multi-block layout.",
-    "project.task1":"A business landing page focused on services, pricing, testimonials, contact and responsive presentation.",
-    "project.news":"A classic editorial homepage with categories, articles, gallery blocks, sidebar content and 3D CSS experiments.",
-    "project.transforms":"A compact CSS experiment demonstrating translate, scale, rotate, skew and matrix transforms through hover interactions.",
-    "project.calculator":"A functional calculator with a clean mobile-style interface and JavaScript logic for arithmetic operations.",
-    "project.pallet":"A full commercial website concept for a pallet company with products, services, advantages, partners and contacts.",
-    "lab.one":"Fluid hover interaction.", "lab.two":"JavaScript time experiment.",
-    "lab.three":"Mouse tracking and depth.", "lab.four":"Canvas visual playground.",
-    "cert.label":"CERTIFICATIONS", "cert.title":"Proof of learning<br><em>and commitment.</em>",
-    "cert.future":"Future certificate", "cert.futureSub":"Next milestone",
-    "contact.eyebrow":"LET’S CONNECT", "contact.title":"LET’S BUILD<br><em>SOMETHING INTERESTING.</em>",
-    "contact.text":"Open to learning, collaboration and first real projects.",
-    "contact.button":"START A CONVERSATION ↗", "footer.text":"BUILDING THE NEXT VERSION."
+    "nav.work": "WORK",
+    "nav.about": "ABOUT",
+    "nav.lab": "LAB",
+    "nav.certificates": "CERTIFICATES",
+    "nav.contact": "CONTACT",
+    "hero.role": "FRONTEND DEVELOPER",
+    "hero.lead": "Building modern interfaces.<br>Learning. Creating. Improving.",
+    "hero.cta1": "VIEW MY JOURNEY ↗",
+    "hero.cta2": "CONTACT ↗",
+    "hero.scroll": "SCROLL TO EXPLORE",
+    "about.label": "ABOUT ME",
+    "about.title1": "I’m",
+    "about.text": "Junior frontend developer, doing web programming since 2020. I build clean, interactive and visually distinctive websites. Currently deepening my JavaScript knowledge and turning your ideas into real interfaces.",
+    "status.title": "CURRENT STATUS",
+    "status.learning": "Learning",
+    "status.explore": "EXPLORE →",
+    "level.foundation": "Foundation",
+    "level.learning": "Learning",
+    "status.now": "Currently learning",
+    "journey.label": "BUILDING IN PUBLIC",
+    "journey.title": "Small steps.<br><em>Big results.</em>",
+    "journey.subtitle": "A transparent learning path instead of pretending to have experience I don’t have yet.",
+    "journey.done": "Foundation",
+    "journey.completed": "Completed",
+    "journey.current": "Currently learning",
+    "journey.progress": "In progress",
+    "journey.next": "Coming next",
+    "journey.planned": "Planned",
+    "journey.first": "First real project",
+    "journey.soon": "Coming soon",
+    "work.label": "SELECTED WORK",
+    "work.emptyTitle": "First project<br><em>loading...</em>",
+    "work.cardTitle": "My first project",
+    "work.emptyText": "A full project will appear here soon...",
+    "lab.label": "IBR LAB",
+    "lab.title": "Experiments<br><em>in progress.</em>",
+    "lab.text": "A collection of frontend experiments and websites built while learning.",
+    "project.canvas": "A browser game built with Canvas API, animation loops, collision logic, mouse control and hit effects.",
+    "project.cyberpunk": "A themed promotional landing page with game information, product blocks, forms and a strong visual identity.",
+    "project.pchela": "An informational honey and beekeeping website with navigation, content sections and a traditional multi-block layout.",
+    "project.task1": "A business landing page focused on services, pricing, testimonials, contact and responsive presentation.",
+    "project.news": "A classic editorial homepage with categories, articles, gallery blocks, sidebar content and 3D CSS experiments.",
+    "project.transforms": "A compact CSS experiment demonstrating translate, scale, rotate, skew and matrix transforms through hover interactions.",
+    "project.calculator": "A functional calculator with a clean mobile-style interface and JavaScript logic for arithmetic operations.",
+    "project.pallet": "A full commercial website concept for a pallet company with products, services, advantages, partners and contacts.",
+    "lab.one": "Fluid hover interaction.",
+    "lab.two": "JavaScript time experiment.",
+    "lab.three": "Mouse tracking and depth.",
+    "lab.four": "Canvas visual playground.",
+    "cert.label": "CERTIFICATIONS",
+    "cert.title": "Proof of learning<br><em>and commitment.</em>",
+
+    "contact.eyebrow": "LET’S CONNECT",
+    "contact.title": "LET’S BUILD<br><em>SOMETHING INTERESTING.</em>",
+    "contact.text": "Open to learning, collaboration and first real projects.",
+    "contact.button": "START A CONVERSATION ↗",
+    "footer.text": "BUILDING THE NEXT VERSION."
   },
   ru: {
-    "nav.work":"РАБОТЫ", "nav.about":"ОБО МНЕ", "nav.lab":"ЛАБОРАТОРИЯ", "nav.certificates":"СЕРТИФИКАТЫ", "nav.contact":"КОНТАКТ",
-    "hero.role":"FRONTEND РАЗРАБОТЧИК", "hero.lead":"Создаю современные интерфейсы.<br>Изучаю. Создаю. Развиваюсь.",
-    "hero.cta1":"МОЙ ПУТЬ ↗", "hero.cta2":"СВЯЗАТЬСЯ ↗", "hero.scroll":"ЛИСТАЙТЕ ДАЛЬШЕ",
-    "about.label":"ОБО МНЕ", "about.title1":"Я —",
-    "about.text":"Junior frontend-разработчик, занимаюсь web программированием с 2020 года. Делаю чистые, интерактивные и визуально выразительные сайты. Сейчас углубляю знания JavaScript. Могу превратить ваши задумки в реальные интерфейсы.",
-    "status.title":"ТЕКУЩИЙ СТАТУС", "status.learning":"Изучаю", "status.explore":"СМОТРЕТЬ →",
-    "level.foundation":"Основа", "level.learning":"Изучение", "status.now":"Сейчас изучаю",
-    "journey.label":"РАЗВИТИЕ", "journey.title":"Маленькие шаги.<br><em>Большие результаты.</em>",
-    "journey.subtitle":"Показываю реальный путь обучения вместо того, чтобы приписывать себе несуществующий опыт.",
-    "journey.done":"Основа", "journey.completed":"Завершено", "journey.current":"Изучаю сейчас",
-    "journey.progress":"В процессе", "journey.next":"Следующий этап", "journey.planned":"Запланировано",
-    "journey.first":"Первый реальный проект", "journey.soon":"Скоро",
-    "work.label":"ИЗБРАННЫЕ РАБОТЫ", "work.emptyTitle":"Первый проект<br><em>загружается...</em>", "work.cardTitle":"Мой первый проект",
-    "work.emptyText":"Скоро здесь появится полноценный проект..",
-    "lab.label":"ЛАБОРАТОРИЯ IBR", "lab.title":"Эксперименты<br><em>в процессе.</em>",
-    "lab.text":"Подборка frontend-экспериментов и сайтов, созданных в процессе обучения.",
-    "project.canvas":"Браузерная игра на Canvas API: игровой цикл, столкновения, управление мышью и эффекты попаданий.",
-    "project.cyberpunk":"Промо-лендинг в стиле Cyberpunk 2077 с информацией об игре, товарными блоками, формой и сильной визуальной подачей.",
-    "project.pchela":"Информационный сайт о мёде и пчеловодстве с навигацией, контентными секциями и классической блочной версткой.",
-    "project.task1":"Лендинг для бизнеса с блоками услуг, ценами, отзывами, контактами и адаптивной версткой.",
-    "project.news":"Классическая новостная главная страница с категориями, статьями, галереей, боковыми блоками и CSS 3D-экспериментами.",
-    "project.transforms":"Тренировка hover-анимаций с практикой translate, scale, rotate, skew и matrix.",
-    "project.calculator":"Рабочий калькулятор с интерфейсом в стиле мобильного приложения и JavaScript-логикой арифметических операций.",
-    "project.pallet":"Полноценный коммерческий сайт-концепт компании по продаже поддонов: товары, услуги, преимущества, партнёры и контакты.",
-    "lab.one":"Плавная hover-анимация.", "lab.two":"Эксперимент со временем на JS.",
-    "lab.three":"Отслеживание мыши и глубина.", "lab.four":"Визуальный playground на Canvas.",
-    "cert.label":"СЕРТИФИКАТЫ", "cert.title":"Подтверждение обучения<br><em>и дисциплины.</em>",
-    "cert.future":"Будущий сертификат", "cert.futureSub":"Следующий этап",
-    "contact.eyebrow":"ДАВАЙТЕ НА СВЯЗЬ", "contact.title":"СОЗДАДИМ<br><em>ЧТО-ТО ИНТЕРЕСНОЕ.</em>",
-    "contact.text":"Открыт к обучению, сотрудничеству и первым реальным проектам.",
-    "contact.button":"НАПИСАТЬ ↗", "footer.text":"СОЗДАЮ СЛЕДУЮЩУЮ ВЕРСИЮ."
+    "nav.work": "РАБОТЫ",
+    "nav.about": "ОБО МНЕ",
+    "nav.lab": "ЛАБОРАТОРИЯ",
+    "nav.certificates": "СЕРТИФИКАТЫ",
+    "nav.contact": "КОНТАКТ",
+    "hero.role": "FRONTEND РАЗРАБОТЧИК",
+    "hero.lead": "Создаю современные интерфейсы.<br>Изучаю. Создаю. Развиваюсь.",
+    "hero.cta1": "МОЙ ПУТЬ ↗",
+    "hero.cta2": "СВЯЗАТЬСЯ ↗",
+    "hero.scroll": "ЛИСТАЙТЕ ДАЛЬШЕ",
+    "about.label": "ОБО МНЕ",
+    "about.title1": "Я —",
+    "about.text": "Junior frontend-разработчик, занимаюсь web программированием с 2020 года. Делаю чистые, интерактивные и визуально выразительные сайты. Сейчас углубляю знания JavaScript. Могу превратить ваши задумки в реальные интерфейсы.",
+    "status.title": "ТЕКУЩИЙ СТАТУС",
+    "status.learning": "Изучаю",
+    "status.explore": "СМОТРЕТЬ →",
+    "level.foundation": "Основа",
+    "level.learning": "Изучение",
+    "status.now": "Сейчас изучаю",
+    "journey.label": "РАЗВИТИЕ",
+    "journey.title": "Маленькие шаги.<br><em>Большие результаты.</em>",
+    "journey.subtitle": "Показываю реальный путь обучения вместо того, чтобы приписывать себе несуществующий опыт.",
+    "journey.done": "Основа",
+    "journey.completed": "Завершено",
+    "journey.current": "Изучаю сейчас",
+    "journey.progress": "В процессе",
+    "journey.next": "Следующий этап",
+    "journey.planned": "Запланировано",
+    "journey.first": "Первый реальный проект",
+    "journey.soon": "Скоро",
+    "work.label": "ИЗБРАННЫЕ РАБОТЫ",
+    "work.emptyTitle": "Первый проект<br><em>загружается...</em>",
+    "work.cardTitle": "Мой первый проект",
+    "work.emptyText": "Скоро здесь появится полноценный проект..",
+    "lab.label": "ЛАБОРАТОРИЯ IBR",
+    "lab.title": "Эксперименты<br><em>в процессе.</em>",
+    "lab.text": "Подборка frontend-экспериментов и сайтов, созданных в процессе обучения.",
+    "project.canvas": "Браузерная игра на Canvas API: игровой цикл, столкновения, управление мышью и эффекты попаданий.",
+    "project.cyberpunk": "Промо-лендинг в стиле Cyberpunk 2077 с информацией об игре, товарными блоками, формой и сильной визуальной подачей.",
+    "project.pchela": "Информационный сайт о мёде и пчеловодстве с навигацией, контентными секциями и классической блочной версткой.",
+    "project.task1": "Лендинг для бизнеса с блоками услуг, ценами, отзывами, контактами и адаптивной версткой.",
+    "project.news": "Классическая новостная главная страница с категориями, статьями, галереей, боковыми блоками и CSS 3D-экспериментами.",
+    "project.transforms": "Тренировка hover-анимаций с практикой translate, scale, rotate, skew и matrix.",
+    "project.calculator": "Рабочий калькулятор с интерфейсом в стиле мобильного приложения и JavaScript-логикой арифметических операций.",
+    "project.pallet": "Полноценный коммерческий сайт-концепт компании по продаже поддонов: товары, услуги, преимущества, партнёры и контакты.",
+    "lab.one": "Плавная hover-анимация.",
+    "lab.two": "Эксперимент со временем на JS.",
+    "lab.three": "Отслеживание мыши и глубина.",
+    "lab.four": "Визуальный playground на Canvas.",
+    "cert.label": "СЕРТИФИКАТЫ",
+    "cert.title": "Подтверждение обучения<br><em>и дисциплины.</em>",
+
+    "contact.eyebrow": "ДАВАЙТЕ НА СВЯЗЬ",
+    "contact.title": "СОЗДАДИМ<br><em>ЧТО-ТО ИНТЕРЕСНОЕ.</em>",
+    "contact.text": "Открыт к обучению, сотрудничеству и первым реальным проектам.",
+    "contact.button": "НАПИСАТЬ ↗",
+    "footer.text": "СОЗДАЮ СЛЕДУЮЩУЮ ВЕРСИЮ."
   }
 };
 
 let currentLanguage = localStorage.getItem("amir-ibr-lang") || "en";
 const languageButton = document.getElementById("langToggle");
 
+// 1. Переключение языка и обновление текстов
 function changeLanguage() {
   document.documentElement.lang = currentLanguage;
 
@@ -96,14 +143,13 @@ languageButton.addEventListener("click", function() {
 
 changeLanguage();
 
-// ---------- 2. Прелоадер ----------
+// 2. Прелоадер: скрываем экран после загрузки
 window.addEventListener("load", function() {
   setTimeout(function() {
     document.querySelector(".loader").classList.add("hide");
   }, 900);
 });
-
-// ---------- 3. Верхнее меню при прокрутке ----------
+// 3. Навигация при прокрутке и анимация появления секций
 window.addEventListener("scroll", function() {
   const navigation = document.querySelector(".nav");
 
@@ -113,9 +159,6 @@ window.addEventListener("scroll", function() {
     navigation.classList.remove("scrolled");
   }
 });
-
-// ---------- 4. Появление блоков при прокрутке ----------
-// IntersectionObserver следит, когда элемент появляется на экране.
 const observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
@@ -127,24 +170,20 @@ const observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll(".reveal").forEach(function(element) {
   observer.observe(element);
 });
-
-// ---------- 5. Светящийся эффект возле курсора ----------
+// 4. Эффекты курсора и движение 3D-сцены
 const cursorGlow = document.querySelector(".cursor-glow");
 const scene = document.getElementById("scene");
 
 window.addEventListener("pointermove", function(event) {
   cursorGlow.style.left = event.clientX + "px";
   cursorGlow.style.top = event.clientY + "px";
-
-  // 3D-объект слегка двигается за курсором только на ПК.
   if (window.innerWidth > 900 && scene) {
     const x = (event.clientX / window.innerWidth - 0.5) * 20;
     const y = (event.clientY / window.innerHeight - 0.5) * 16;
     scene.style.transform = "translate(" + x + "px, " + y + "px)";
   }
 });
-
-// ---------- 6. Небольшой эффект магнитных кнопок ----------
+// 5. Магнитные кнопки и наклон карточек при наведении
 const magneticButtons = document.querySelectorAll(".magnetic");
 
 magneticButtons.forEach(function(button) {
@@ -162,8 +201,6 @@ magneticButtons.forEach(function(button) {
     button.style.transform = "";
   });
 });
-
-// ---------- 7. Наклон карточек в Lab ----------
 const cards = document.querySelectorAll(".magnetic-card");
 
 cards.forEach(function(card) {
@@ -181,8 +218,7 @@ cards.forEach(function(card) {
     card.style.transform = "";
   });
 });
-
-// ---------- 8. Мобильное меню ----------
+// 6. Мобильное меню
 const mobileMenu = document.getElementById("mobileMenu");
 const menuButton = document.getElementById("menuToggle");
 const closeButton = document.getElementById("closeMenu");
@@ -203,10 +239,9 @@ closeButton.addEventListener("click", closeMobileMenu);
 mobileLinks.forEach(function(link) {
   link.addEventListener("click", closeMobileMenu);
 });
-
-// ---------- 9. Ctrl + K / Cmd + K ----------
+// 7. Горячая клавиша Ctrl/Cmd + I — переход к контактам
 document.addEventListener("keydown", function(event) {
-  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "i") {
     event.preventDefault();
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
   }
