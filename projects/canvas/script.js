@@ -375,7 +375,7 @@ function gameOver() {
   ctx.font = "20px Arial, sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText("ЭЛЬДАР ЛОХ - Ты дошел только до "+points+" очков!", W/2, H/2 + 25 );
+  ctx.fillText("Ты дошел до "+points+" очков!", W/2, H/2 + 25 );
   
   // Stop the Animation
   cancelRequestAnimFrame(init);
