@@ -128,6 +128,8 @@ body{
 	position: absolute;
     right: 26%;
     top: 454px;
+    width: 32%;
+    left: 20px;
 }
 .our-s{
 	display: flex;
