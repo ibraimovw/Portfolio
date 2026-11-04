@@ -634,7 +634,7 @@ h1 em,h2 em {
   border-radius:50%;
   display:grid;
   place-items:center;
-  font-size:0;
+  font-size: 0.001px;
   background:var(--bg);
 }
 .timeline-item.done .timeline-num {
