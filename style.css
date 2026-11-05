@@ -108,6 +108,7 @@ button {
   border-bottom:1px solid transparent;
   z-index:50;
   transition:.35s;
+  background: black; /*временно*/
 }
 .nav.scrolled {
   background:rgba(5,5,7,.76);

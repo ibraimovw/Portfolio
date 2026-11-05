@@ -119,130 +119,87 @@ const translations = {
   }
 };
 
+// 1. Переключение языка сайта.
 let currentLanguage = localStorage.getItem("amir-ibr-lang") || "en";
 const languageButton = document.getElementById("langToggle");
 
-// 1. Переключение языка и обновление текстов
 function changeLanguage() {
   document.documentElement.lang = currentLanguage;
 
-  const elements = document.querySelectorAll("[data-i18n]");
-  elements.forEach(function(element) {
+  document.querySelectorAll("[data-i18n]").forEach(function(element) {
     const key = element.getAttribute("data-i18n");
-    element.innerHTML = translations[currentLanguage][key];
+    const text = translations[currentLanguage][key];
+    if (text) element.innerHTML = text;
   });
 
-  languageButton.textContent = currentLanguage === "en" ? "EN / RU" : "RU / EN";
+  if (languageButton) {
+    languageButton.textContent = currentLanguage === "en" ? "EN / RU" : "RU / EN";
+  }
   localStorage.setItem("amir-ibr-lang", currentLanguage);
 }
 
-languageButton.addEventListener("click", function() {
-  currentLanguage = currentLanguage === "en" ? "ru" : "en";
-  changeLanguage();
-});
-
+if (languageButton) {
+  languageButton.addEventListener("click", function() {
+    currentLanguage = currentLanguage === "en" ? "ru" : "en";
+    changeLanguage();
+  });
+}
 changeLanguage();
 
-// 2. Прелоадер: скрываем экран после загрузки
+// 2. Прелоадер: скрывает экран загрузки после загрузки страницы.
 window.addEventListener("load", function() {
-  setTimeout(function() {
-    document.querySelector(".loader").classList.add("hide");
-  }, 900);
-});
-// 3. Навигация при прокрутке и анимация появления секций
-window.addEventListener("scroll", function() {
-  const navigation = document.querySelector(".nav");
+  // Показываем все секции сразу, чтобы без скролл-анимации контент не оставался скрытым.
+  document.querySelectorAll(".reveal").forEach(function(element) {
+    element.classList.add("visible");
+  });
 
-  if (window.scrollY > 30) {
-    navigation.classList.add("scrolled");
-  } else {
-    navigation.classList.remove("scrolled");
+  const loader = document.querySelector(".loader");
+  if (loader) {
+    setTimeout(function() {
+      loader.classList.add("hide");
+    }, 900);
   }
 });
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.12 });
 
-document.querySelectorAll(".reveal").forEach(function(element) {
-  observer.observe(element);
-});
-// 4. Эффекты курсора и движение 3D-сцены
+// 3. Эффект курсора: перемещает свечение и слегка двигает 3D-сцену.
 const cursorGlow = document.querySelector(".cursor-glow");
 const scene = document.getElementById("scene");
 
 window.addEventListener("pointermove", function(event) {
-  cursorGlow.style.left = event.clientX + "px";
-  cursorGlow.style.top = event.clientY + "px";
-  if (window.innerWidth > 900 && scene) {
+  if (cursorGlow) {
+    cursorGlow.style.left = event.clientX + "px";
+    cursorGlow.style.top = event.clientY + "px";
+  }
+
+  if (scene && window.innerWidth > 900) {
     const x = (event.clientX / window.innerWidth - 0.5) * 20;
     const y = (event.clientY / window.innerHeight - 0.5) * 16;
     scene.style.transform = "translate(" + x + "px, " + y + "px)";
   }
-});
-// 5. Магнитные кнопки и наклон карточек при наведении
-const magneticButtons = document.querySelectorAll(".magnetic");
+}, { passive: true });
 
-magneticButtons.forEach(function(button) {
-  button.addEventListener("pointermove", function(event) {
-    if (window.innerWidth < 800) return;
-
-    const box = button.getBoundingClientRect();
-    const x = event.clientX - box.left - box.width / 2;
-    const y = event.clientY - box.top - box.height / 2;
-
-    button.style.transform = "translate(" + x * 0.12 + "px, " + y * 0.12 + "px)";
-  });
-
-  button.addEventListener("pointerleave", function() {
-    button.style.transform = "";
-  });
-});
-const cards = document.querySelectorAll(".magnetic-card");
-
-cards.forEach(function(card) {
-  card.addEventListener("pointermove", function(event) {
-    if (window.innerWidth < 800) return;
-
-    const box = card.getBoundingClientRect();
-    const x = (event.clientX - box.left) / box.width - 0.5;
-    const y = (event.clientY - box.top) / box.height - 0.5;
-
-    card.style.transform = "perspective(700px) rotateX(" + y * -5 + "deg) rotateY(" + x * 5 + "deg) translateY(-3px)";
-  });
-
-  card.addEventListener("pointerleave", function() {
-    card.style.transform = "";
-  });
-});
-// 6. Мобильное меню
+// 4. Мобильное меню: открывает меню и закрывает его по кнопке, ссылке или Esc.
 const mobileMenu = document.getElementById("mobileMenu");
 const menuButton = document.getElementById("menuToggle");
 const closeButton = document.getElementById("closeMenu");
-const mobileLinks = document.querySelectorAll(".mobile-menu a");
 
 function closeMobileMenu() {
+  if (!mobileMenu) return;
   mobileMenu.classList.remove("open");
   document.body.classList.remove("menu-open");
 }
 
-menuButton.addEventListener("click", function() {
-  mobileMenu.classList.add("open");
-  document.body.classList.add("menu-open");
-});
+if (mobileMenu && menuButton) {
+  menuButton.addEventListener("click", function() {
+    mobileMenu.classList.add("open");
+    document.body.classList.add("menu-open");
+  });
 
-closeButton.addEventListener("click", closeMobileMenu);
-
-mobileLinks.forEach(function(link) {
-  link.addEventListener("click", closeMobileMenu);
-});
-// 7. Горячая клавиша Ctrl/Cmd + I — переход к контактам
-document.addEventListener("keydown", function(event) {
-  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "i") {
-    event.preventDefault();
-    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-  }
-});
+  if (closeButton) closeButton.addEventListener("click", closeMobileMenu);
+  mobileMenu.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", closeMobileMenu);
+  });
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") closeMobileMenu();
+  });
+}
