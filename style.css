@@ -141,7 +141,7 @@ button {
   font-size:10px;
   letter-spacing:.13em;
   color:#c7c7d0;
-  transition:.25s
+  transition:.25s;
 }
 .nav-links a:hover {
   color:white;
@@ -444,19 +444,19 @@ h1 em,h2 em {
   letter-spacing:-.06em;
   margin-bottom:25px;
 }
-.about-copy>p {
+.about-copy>p{
   color:#aaaab5;
   line-height:1.8;
   max-width:530px;
   font-size:15px;
 }
-.socials {
+.socials{
   display:flex;
   flex-wrap:wrap;
   gap:18px;
   margin-top:38px;
 }
-.socials a,.contact-links a {
+.socials a, .contact-links a {
   font-size:12px;
   color:#c8c8d1;
   transition:.25s;
@@ -837,7 +837,7 @@ h1 em,h2 em {
 }
 .certificate p {
   font:600 20px var(--display);
-  margin-top:38px
+  margin-top:38px;
 }
 .certificate small {
   display:block;
@@ -890,7 +890,7 @@ h1 em,h2 em {
   margin-bottom:32px;
 }
 .btn.big {
-  padding:19px 25px
+  padding:19px 25px;
 }
 .contact-links {
   display:flex;
@@ -1154,7 +1154,7 @@ h1 em,h2 em {
 
 /* 18. Стили портретного блока IBR */
 .portrait-glow {
-   position: absolute;
+  position: absolute;
   width: 300px;
   height: 390px;
   border-radius: 45%;
@@ -1163,7 +1163,7 @@ h1 em,h2 em {
   transform: rotate(-7deg);
 }
 .portrait-frame {
-   width: min(100%, 330px);
+  width: min(100%, 330px);
   height: 420px;
   position: relative;
   overflow: hidden;
