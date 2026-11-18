@@ -1811,3 +1811,33 @@ body.light-theme .contact-orb {
 body.light-theme .cursor-glow {
   background: radial-gradient(circle, rgba(237, 56, 109, .15), transparent 68%);
 }
+
+
+/* Дополнительная настройка светлой темы: мобильное меню и превью проекта */
+body.light-theme .mobile-menu {
+  background: rgba(255, 241, 244, .97);
+  border-left: 1px solid rgba(174, 48, 94, .12);
+}
+body.light-theme .mobile-menu a {
+  color: #492033;
+}
+body.light-theme .mobile-menu a:hover {
+  color: #e83268;
+}
+body.light-theme .close-menu {
+  color: #7f294d;
+}
+body.light-theme .project-placeholder {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(232, 50, 104, .16), transparent 34%),
+    linear-gradient(135deg, #ead2dc 0%, #d9bdca 100%);
+  color: #684052;
+  border: 1px solid rgba(105, 48, 74, .14);
+}
+
+/* На телефонах и устройствах без мыши не показываем свечение курсора */
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow {
+    display: none !important;
+  }
+}

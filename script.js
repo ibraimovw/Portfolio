@@ -174,6 +174,9 @@ if ("IntersectionObserver" in window) {
 const cursorGlow = document.querySelector(".cursor-glow");
 const scene = document.getElementById("scene");
 window.addEventListener("pointermove", function(event) {
+  // Эффект работает только с настоящей мышью, а не с касанием экрана.
+  if (event.pointerType !== "mouse") return;
+
   if (cursorGlow) {
     cursorGlow.style.left = event.clientX + "px";
     cursorGlow.style.top = event.clientY + "px";
