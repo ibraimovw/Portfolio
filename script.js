@@ -119,25 +119,21 @@ const translations = {
   }
 };
 
-// 1. Переключение языка сайта.
+
+// 1. Переключение языка EN/RU с сохранением выбора.
 let currentLanguage = localStorage.getItem("amir-ibr-lang") || "en";
 const languageButton = document.getElementById("langToggle");
 
 function changeLanguage() {
   document.documentElement.lang = currentLanguage;
-
   document.querySelectorAll("[data-i18n]").forEach(function(element) {
     const key = element.getAttribute("data-i18n");
-    const text = translations[currentLanguage][key];
-    if (text) element.innerHTML = text;
+    const value = translations[currentLanguage][key];
+    if (value) element.innerHTML = value;
   });
-
-  if (languageButton) {
-    languageButton.textContent = currentLanguage === "en" ? "EN / RU" : "RU / EN";
-  }
+  if (languageButton) languageButton.textContent = currentLanguage === "en" ? "EN / RU" : "RU / EN";
   localStorage.setItem("amir-ibr-lang", currentLanguage);
 }
-
 if (languageButton) {
   languageButton.addEventListener("click", function() {
     currentLanguage = currentLanguage === "en" ? "ru" : "en";
@@ -146,31 +142,42 @@ if (languageButton) {
 }
 changeLanguage();
 
-// 2. Прелоадер: скрывает экран загрузки после загрузки страницы.
+// 2. Прелоадер скрывается после загрузки страницы.
 window.addEventListener("load", function() {
-  // Показываем все секции сразу, чтобы без скролл-анимации контент не оставался скрытым.
-  document.querySelectorAll(".reveal").forEach(function(element) {
-    element.classList.add("visible");
-  });
-
   const loader = document.querySelector(".loader");
-  if (loader) {
-    setTimeout(function() {
-      loader.classList.add("hide");
-    }, 900);
-  }
+  if (loader) setTimeout(function() { loader.classList.add("hide"); }, 900);
 });
 
-// 3. Эффект курсора: перемещает свечение и слегка двигает 3D-сцену.
+// 3. Навигация при прокрутке и анимация появления секций.
+const navigation = document.querySelector(".nav");
+function updateNavigation() {
+  if (navigation) navigation.classList.toggle("scrolled", window.scrollY > 30);
+}
+window.addEventListener("scroll", updateNavigation, { passive: true });
+updateNavigation();
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(function(item) { revealObserver.observe(item); });
+} else {
+  document.querySelectorAll(".reveal").forEach(function(item) { item.classList.add("visible"); });
+}
+
+// 4. Эффект курсора и движение 3D-сцены.
 const cursorGlow = document.querySelector(".cursor-glow");
 const scene = document.getElementById("scene");
-
 window.addEventListener("pointermove", function(event) {
   if (cursorGlow) {
     cursorGlow.style.left = event.clientX + "px";
     cursorGlow.style.top = event.clientY + "px";
   }
-
   if (scene && window.innerWidth > 900) {
     const x = (event.clientX / window.innerWidth - 0.5) * 20;
     const y = (event.clientY / window.innerHeight - 0.5) * 16;
@@ -178,132 +185,127 @@ window.addEventListener("pointermove", function(event) {
   }
 }, { passive: true });
 
-// 4. Мобильное меню: открывает меню и закрывает его по кнопке, ссылке или Esc.
+// 5. Магнитные кнопки и наклон карточек при наведении.
+document.querySelectorAll(".magnetic").forEach(function(button) {
+  button.addEventListener("pointermove", function(event) {
+    if (window.innerWidth < 800) return;
+    const box = button.getBoundingClientRect();
+    const x = event.clientX - box.left - box.width / 2;
+    const y = event.clientY - box.top - box.height / 2;
+    button.style.transform = "translate(" + x * 0.12 + "px, " + y * 0.12 + "px)";
+  });
+  button.addEventListener("pointerleave", function() { button.style.transform = ""; });
+});
+document.querySelectorAll(".magnetic-card").forEach(function(card) {
+  card.addEventListener("pointermove", function(event) {
+    if (window.innerWidth < 800) return;
+    const box = card.getBoundingClientRect();
+    const x = (event.clientX - box.left) / box.width - 0.5;
+    const y = (event.clientY - box.top) / box.height - 0.5;
+    card.style.transform = "perspective(700px) rotateX(" + y * -5 + "deg) rotateY(" + x * 5 + "deg) translateY(-3px)";
+  });
+  card.addEventListener("pointerleave", function() { card.style.transform = ""; });
+});
+
+// 6. Мобильное меню.
 const mobileMenu = document.getElementById("mobileMenu");
 const menuButton = document.getElementById("menuToggle");
 const closeButton = document.getElementById("closeMenu");
-
 function closeMobileMenu() {
   if (!mobileMenu) return;
   mobileMenu.classList.remove("open");
   document.body.classList.remove("menu-open");
 }
-
 if (mobileMenu && menuButton) {
   menuButton.addEventListener("click", function() {
     mobileMenu.classList.add("open");
     document.body.classList.add("menu-open");
   });
-
   if (closeButton) closeButton.addEventListener("click", closeMobileMenu);
-  mobileMenu.querySelectorAll("a").forEach(function(link) {
-    link.addEventListener("click", closeMobileMenu);
-  });
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") closeMobileMenu();
-  });
+  mobileMenu.querySelectorAll("a").forEach(function(link) { link.addEventListener("click", closeMobileMenu); });
+  document.addEventListener("keydown", function(event) { if (event.key === "Escape") closeMobileMenu(); });
 }
 
-
-// 5. Светлая и тёмная тема: выбор сохраняется в браузере.
+// 7. Светлая/тёмная тема с сохранением выбора.
 const themeButton = document.createElement("button");
-themeButton.className = "theme-toggle";
 themeButton.type = "button";
-themeButton.setAttribute("aria-label", "Переключить тему");
-themeButton.textContent = localStorage.getItem("amir-ibr-theme") === "light" ? "☾" : "☀";
-document.querySelector(".nav-actions")?.insertBefore(themeButton, languageButton);
-
+themeButton.id = "themeToggle";
+themeButton.className = "theme-toggle";
+themeButton.setAttribute("aria-label", "Switch color theme");
+themeButton.innerHTML = "☼";
+if (languageButton && languageButton.parentElement) {
+  languageButton.parentElement.insertBefore(themeButton, languageButton);
+}
 function setTheme(theme) {
   document.body.classList.toggle("light-theme", theme === "light");
-  themeButton.textContent = theme === "light" ? "☾" : "☀";
+  themeButton.textContent = theme === "light" ? "☾" : "☼";
+  themeButton.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to light theme");
   localStorage.setItem("amir-ibr-theme", theme);
 }
 setTheme(localStorage.getItem("amir-ibr-theme") || "dark");
-
 themeButton.addEventListener("click", function() {
   setTheme(document.body.classList.contains("light-theme") ? "dark" : "light");
 });
 
-// 6. Кнопка «Наверх»: появляется после прокрутки страницы.
+// 8. Кнопка возврата наверх появляется после прокрутки.
 const topButton = document.createElement("button");
-topButton.className = "scroll-top";
 topButton.type = "button";
-topButton.textContent = "↑";
-topButton.setAttribute("aria-label", "Наверх");
+topButton.className = "scroll-top";
+topButton.setAttribute("aria-label", "Scroll to top");
+topButton.innerHTML = "↑";
 document.body.appendChild(topButton);
-
-window.addEventListener("scroll", function() {
-  topButton.classList.toggle("show", window.scrollY > 400);
-}, { passive: true });
-
+function updateTopButton() { topButton.classList.toggle("show", window.scrollY > 400); }
+window.addEventListener("scroll", updateTopButton, { passive: true });
+updateTopButton();
 topButton.addEventListener("click", function() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// 7. Приветствие: спрашивает имя при первом визите, а затем здоровается при каждом входе.
-function showGreeting(name) {
-  const greeting = document.createElement("div");
-  greeting.className = "greeting-toast";
-  greeting.textContent = "Рад видеть тебя, " + name + "!";
-  document.body.appendChild(greeting);
-
-  setTimeout(function() {
-    greeting.classList.add("hide");
-  }, 2800);
-  setTimeout(function() {
-    greeting.remove();
-  }, 3400);
-}
-
-const savedName = localStorage.getItem("amir-ibr-name");
-
-if (savedName) {
-  // Имя уже сохранено — приветствуем пользователя при каждом открытии сайта.
-  window.addEventListener("load", function() {
-    setTimeout(function() {
-      showGreeting(savedName);
-    }, 500);
-  });
-} else {
-  // При первом посещении просим имя и сохраняем его в localStorage.
-  const welcome = document.createElement("div");
-  welcome.className = "welcome-overlay";
-  welcome.innerHTML = `
-    <form class="welcome-box">
-      <p class="welcome-kicker">WELCOME</p>
-      <h2>Как тебя зовут?</h2>
-      <p>Представься, и я поприветствую тебя на сайте.</p>
-      <input name="username" type="text" maxlength="30" placeholder="Твоё имя" autocomplete="given-name" required>
-      <button type="submit">Продолжить ↗</button>
-      <button class="welcome-skip" type="button">Пропустить</button>
-    </form>`;
-  document.body.appendChild(welcome);
-
-  const welcomeForm = welcome.querySelector("form");
-  const nameInput = welcome.querySelector("input");
-
-  welcomeForm.addEventListener("submit", function(event) {
+// 9. Приветствие: спрашивает имя один раз и здоровается при каждом визите.
+function showGreeting() {
+  let savedName = localStorage.getItem("amir-ibr-user-name");
+  if (savedName) {
+    displayGreeting(savedName);
+    return;
+  }
+  const overlay = document.createElement("div");
+  overlay.className = "greeting-overlay";
+  overlay.innerHTML = '<div class="greeting-box"><button class="greeting-close" aria-label="Close">×</button><p class="greeting-kicker">WELCOME</p><h2>What should I call you?</h2><form class="greeting-form"><input name="name" type="text" maxlength="30" placeholder="Your name" autocomplete="given-name" required><button type="submit">Continue ↗</button></form><button class="greeting-skip" type="button">Maybe later</button></div>';
+  document.body.appendChild(overlay);
+  const form = overlay.querySelector("form");
+  function closeGreeting() { overlay.remove(); }
+  overlay.querySelector(".greeting-close").addEventListener("click", closeGreeting);
+  overlay.querySelector(".greeting-skip").addEventListener("click", closeGreeting);
+  form.addEventListener("submit", function(event) {
     event.preventDefault();
-    const name = nameInput.value.trim();
-
-    if (name) {
-      localStorage.setItem("amir-ibr-name", name);
-      welcome.remove();
-      showGreeting(name);
-    }
-  });
-
-  welcome.querySelector(".welcome-skip").addEventListener("click", function() {
-    welcome.remove();
+    const name = form.elements.name.value.trim();
+    if (!name) return;
+    localStorage.setItem("amir-ibr-user-name", name);
+    closeGreeting();
+    displayGreeting(name);
   });
 }
+function displayGreeting(name) {
+  const note = document.createElement("div");
+  note.className = "greeting-toast";
+  note.textContent = "Glad to see you, " + name + "!";
+  document.body.appendChild(note);
+  setTimeout(function() { note.classList.add("visible"); }, 50);
+  setTimeout(function() {
+    note.classList.remove("visible");
+    setTimeout(function() { note.remove(); }, 400);
+  }, 4000);
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", showGreeting, { once: true });
+} else {
+  showGreeting();
+}
 
-// 8. Плавная прокрутка для всех внутренних ссылок сайта.
+// 10. Плавная прокрутка для всех внутренних якорных ссылок.
 document.querySelectorAll('a[href^="#"]').forEach(function(link) {
   link.addEventListener("click", function(event) {
-    const href = link.getAttribute("href");
-    if (!href || href === "#") return;
-    const target = document.querySelector(href);
+    const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
     event.preventDefault();
     target.scrollIntoView({ behavior: "smooth", block: "start" });
