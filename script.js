@@ -203,3 +203,76 @@ if (mobileMenu && menuButton) {
     if (event.key === "Escape") closeMobileMenu();
   });
 }
+
+
+
+
+// Получаем элементы
+    const g = document.getElementById('greeting');
+    const btn = document.getElementById('askName');
+
+    // Функция показывает приветствие
+    function showGreeting(name) {
+      g.textContent = name
+        ? `Привет, ${name}!`
+        : 'Добро пожаловать!';
+    }
+
+    // Функция спрашивает имя
+    function askName() {
+      const name = prompt('Как тебя зовут?');
+      if (name) {
+        localStorage.setItem('visitorName', name);
+      } else {
+        localStorage.removeItem('visitorName');
+      }
+      showGreeting(localStorage.getItem('visitorName'));
+    }
+
+    // Когда нажимаем кнопку — спрашиваем имя
+    btn.addEventListener('click', askName);
+
+    // Если имя уже сохранено — показываем сразу
+    showGreeting(localStorage.getItem('visitorName'));
+
+
+
+
+
+
+    const themeBtn = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Применяем сохранённую тему при загрузке
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark');
+  themeBtn.textContent = 'Светлая тема';
+}
+
+themeBtn.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  const isDark = body.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  themeBtn.textContent = isDark ? 'Светлая тема' : 'Тёмная тема';
+});
+
+
+// Кнопка «Наверх»
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+// Порог появления (в пикселях)
+const SHOW_AFTER = 300;
+
+// Следим за прокруткой и показываем/скрываем кнопку
+window.addEventListener('scroll', () => {
+  if (window.scrollY > SHOW_AFTER) {
+    scrollTopBtn.classList.add('show');
+  } else {
+    scrollTopBtn.classList.remove('show');
+  }
+});
+
+// Плавно прокручиваем к началу страницы
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
