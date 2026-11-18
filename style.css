@@ -1565,3 +1565,249 @@ body.light-theme .project-lab-card .project-tags a { color:#6c43d9; }
   .greeting-form { flex-direction:column; }
   .greeting-form button { padding:14px; }
 }
+
+/* Светлая тема: клубничная палитра */
+body.light-theme {
+  --bg: #fff1f4;
+  --surface: #fffafb;
+  --surface2: #ffe2e9;
+  --text: #29131d;
+  --muted: #805b69;
+  --pink: #e83268;
+  --blue: #9b5bd6;
+  --violet: #c43b78;
+  --line: rgba(125, 39, 70, .14);
+  --grad: linear-gradient(110deg, #ed386d 0%, #d84b91 55%, #9867d9 100%);
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.light-theme .section {
+  border-color: var(--line);
+}
+body.light-theme .hero {
+  background:
+    radial-gradient(ellipse at 82% 22%, rgba(238, 83, 129, .17), transparent 38%),
+    linear-gradient(135deg, #fff7f8 0%, #ffedf1 100%);
+}
+body.light-theme .about,
+body.light-theme .work,
+body.light-theme .certificates {
+  background: #fff8f9;
+}
+body.light-theme .journey,
+body.light-theme .lab {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(236, 72, 119, .09), transparent 36%),
+    #ffedf1;
+}
+body.light-theme .contact {
+  background: linear-gradient(145deg, #ffe4eb 0%, #fff2f5 55%, #f5e9fb 100%);
+}
+
+/* Текст и навигация */
+body.light-theme .nav,
+body.light-theme .nav.scrolled {
+  background: rgba(255, 247, 249, .92);
+  border-color: var(--line);
+  backdrop-filter: blur(18px);
+}
+body.light-theme .nav-links a,
+body.light-theme .lang-btn,
+body.light-theme .socials a,
+body.light-theme .contact-links a {
+  color: #684454;
+}
+body.light-theme .nav-links a:hover,
+body.light-theme .socials a:hover,
+body.light-theme .contact-links a:hover {
+  color: #d92e65;
+}
+body.light-theme .eyebrow,
+body.light-theme .hero-lead,
+body.light-theme .about-copy > p,
+body.light-theme .journey-head p,
+body.light-theme .lab-head p,
+body.light-theme .cert-head p,
+body.light-theme .empty-work p {
+  color: #765866;
+}
+body.light-theme h1 span {
+  color: #2b1721;
+}
+body.light-theme h1 em,
+body.light-theme h2 em {
+  background-image: linear-gradient(105deg, #ed386d 0%, #cf3e83 58%, #9363d7 100%);
+}
+
+/* Стеклянные карточки и блок статуса */
+body.light-theme .glass {
+  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(255,238,243,.88));
+  border: 1px solid rgba(180, 66, 103, .16);
+  box-shadow: 0 14px 38px rgba(137, 48, 81, .08);
+  backdrop-filter: blur(14px);
+}
+body.light-theme .card-head,
+body.light-theme .card-head i,
+body.light-theme .skill,
+body.light-theme .skill strong,
+body.light-theme .learning-box,
+body.light-theme .learning-box small {
+  color: #795968;
+}
+body.light-theme .status-main a {
+  color: #c52f63;
+}
+body.light-theme .learning-box {
+  background: #ffebf0;
+  border: 1px solid rgba(180, 66, 103, .12);
+}
+body.light-theme .dots i {
+  background: #f0cbd6;
+}
+body.light-theme .dots i.on {
+  background: linear-gradient(90deg, #ed386d, #a65ed0);
+  box-shadow: 0 0 7px rgba(237, 56, 109, .3);
+}
+
+/* Фото оставляем контрастным: тёмная рамка работает как намеренный акцент */
+body.light-theme .portrait-glow {
+  background: radial-gradient(circle, rgba(237, 56, 109, .30), rgba(214, 74, 139, .13) 48%, transparent 72%);
+}
+body.light-theme .portrait-frame {
+  border: 1px solid rgba(237, 56, 109, .48);
+  box-shadow: 0 24px 58px rgba(137, 48, 81, .22), 0 0 0 7px rgba(237, 56, 109, .07);
+}
+body.light-theme .portrait-frame:hover {
+  box-shadow: 0 28px 65px rgba(137, 48, 81, .25), 0 0 0 8px rgba(237, 56, 109, .10);
+}
+
+/* Small Steps / timeline */
+body.light-theme .timeline {
+  color: #785666;
+  border-color: rgba(180, 66, 103, .18);
+}
+body.light-theme .timeline-item:before {
+  background: #e8b9c8;
+}
+body.light-theme .timeline-num {
+  background: #fff1f4;
+  border-color: #d99aac;
+}
+body.light-theme .timeline-item h3 {
+  color: #2b1721;
+}
+body.light-theme .timeline-item p,
+body.light-theme .timeline-item b {
+  color: #805b69;
+}
+body.light-theme .timeline-item.active b {
+  color: #c42f65;
+}
+body.light-theme .timeline-item.done b {
+  color: #438b78;
+}
+body.light-theme .timeline-item.done .timeline-num {
+  background: #e83268;
+  border-color: #e83268;
+  box-shadow: 0 0 0 4px rgba(232, 50, 104, .13);
+}
+body.light-theme .timeline-item.active .timeline-num {
+  border-color: #b34c9b;
+  box-shadow: 0 0 0 4px rgba(179, 76, 155, .13);
+}
+
+/* Карточки проектов */
+body.light-theme .project-lab-card {
+  color: #2b1721;
+  background: linear-gradient(155deg, #fffafb 0%, #ffeef2 100%);
+  border-color: rgba(180, 66, 103, .18);
+  box-shadow: 0 12px 32px rgba(137, 48, 81, .07);
+}
+body.light-theme .project-lab-card:hover {
+  border-color: rgba(218, 46, 101, .42);
+  box-shadow: 0 18px 42px rgba(184, 54, 99, .13);
+}
+body.light-theme .project-lab-card h3,
+body.light-theme .project-lab-card .project-meta {
+  color: #321a26;
+}
+body.light-theme .project-lab-card > p {
+  color: #765866;
+}
+body.light-theme .project-lab-card > span {
+  color: #a36d80;
+}
+body.light-theme .project-lab-card b {
+  color: #c52f63;
+}
+body.light-theme .project-lab-card .project-tags b {
+  background: #f9dce5;
+  color: #74334d;
+  border: 1px solid rgba(197, 47, 99, .12);
+}
+body.light-theme .project-lab-card .project-tags a {
+  color: #a12e67;
+}
+body.light-theme .lab-card:hover {
+  border-color: rgba(218, 46, 101, .35);
+  box-shadow: 0 18px 42px rgba(184, 54, 99, .12);
+}
+
+/* Сертификаты — чистые карточки без тяжёлой тени */
+body.light-theme .certificate {
+  background: linear-gradient(135deg, #fff 0%, #fff3f6 100%);
+  border: 1px solid rgba(180, 66, 103, .20);
+  box-shadow: none !important;
+  filter: none !important;
+}
+body.light-theme .certificate::before,
+body.light-theme .certificate::after {
+  box-shadow: none !important;
+  filter: none !important;
+}
+body.light-theme .cert-logo {
+  color: #d83c70;
+  opacity: .8;
+}
+body.light-theme .certificate p,
+body.light-theme .certificate strong {
+  color: #2b1721;
+}
+body.light-theme .certificate small,
+body.light-theme .certificate > span {
+  color: #806574;
+}
+
+/* Прочие интерактивные элементы */
+body.light-theme .btn-ghost {
+  color: #8e2854;
+  border-color: rgba(174, 48, 94, .28);
+}
+body.light-theme .btn-ghost:hover {
+  background: rgba(232, 50, 104, .08);
+}
+body.light-theme .theme-toggle,
+body.light-theme .scroll-top {
+  background: #fff8fa;
+  color: #9f2856;
+  border-color: rgba(174, 48, 94, .20);
+  box-shadow: 0 8px 24px rgba(137, 48, 81, .10);
+}
+body.light-theme .greeting-box,
+body.light-theme .greeting-toast {
+  background: #fffafb;
+  border-color: rgba(180, 66, 103, .20);
+  color: #29131d;
+}
+body.light-theme .greeting-form input {
+  background: #fff1f4;
+  border-color: rgba(180, 66, 103, .22);
+  color: #29131d;
+}
+body.light-theme .contact-orb {
+  background: radial-gradient(circle, rgba(237, 56, 109, .18), transparent 67%);
+}
+body.light-theme .cursor-glow {
+  background: radial-gradient(circle, rgba(237, 56, 109, .15), transparent 68%);
+}
