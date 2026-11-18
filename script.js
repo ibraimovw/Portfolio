@@ -205,4 +205,107 @@ if (mobileMenu && menuButton) {
 }
 
 
+// 5. Светлая и тёмная тема: выбор сохраняется в браузере.
+const themeButton = document.createElement("button");
+themeButton.className = "theme-toggle";
+themeButton.type = "button";
+themeButton.setAttribute("aria-label", "Переключить тему");
+themeButton.textContent = localStorage.getItem("amir-ibr-theme") === "light" ? "☾" : "☀";
+document.querySelector(".nav-actions")?.insertBefore(themeButton, languageButton);
 
+function setTheme(theme) {
+  document.body.classList.toggle("light-theme", theme === "light");
+  themeButton.textContent = theme === "light" ? "☾" : "☀";
+  localStorage.setItem("amir-ibr-theme", theme);
+}
+setTheme(localStorage.getItem("amir-ibr-theme") || "dark");
+
+themeButton.addEventListener("click", function() {
+  setTheme(document.body.classList.contains("light-theme") ? "dark" : "light");
+});
+
+// 6. Кнопка «Наверх»: появляется после прокрутки страницы.
+const topButton = document.createElement("button");
+topButton.className = "scroll-top";
+topButton.type = "button";
+topButton.textContent = "↑";
+topButton.setAttribute("aria-label", "Наверх");
+document.body.appendChild(topButton);
+
+window.addEventListener("scroll", function() {
+  topButton.classList.toggle("show", window.scrollY > 400);
+}, { passive: true });
+
+topButton.addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// 7. Приветствие: спрашивает имя при первом визите, а затем здоровается при каждом входе.
+function showGreeting(name) {
+  const greeting = document.createElement("div");
+  greeting.className = "greeting-toast";
+  greeting.textContent = "Рад видеть тебя, " + name + "!";
+  document.body.appendChild(greeting);
+
+  setTimeout(function() {
+    greeting.classList.add("hide");
+  }, 2800);
+  setTimeout(function() {
+    greeting.remove();
+  }, 3400);
+}
+
+const savedName = localStorage.getItem("amir-ibr-name");
+
+if (savedName) {
+  // Имя уже сохранено — приветствуем пользователя при каждом открытии сайта.
+  window.addEventListener("load", function() {
+    setTimeout(function() {
+      showGreeting(savedName);
+    }, 500);
+  });
+} else {
+  // При первом посещении просим имя и сохраняем его в localStorage.
+  const welcome = document.createElement("div");
+  welcome.className = "welcome-overlay";
+  welcome.innerHTML = `
+    <form class="welcome-box">
+      <p class="welcome-kicker">WELCOME</p>
+      <h2>Как тебя зовут?</h2>
+      <p>Представься, и я поприветствую тебя на сайте.</p>
+      <input name="username" type="text" maxlength="30" placeholder="Твоё имя" autocomplete="given-name" required>
+      <button type="submit">Продолжить ↗</button>
+      <button class="welcome-skip" type="button">Пропустить</button>
+    </form>`;
+  document.body.appendChild(welcome);
+
+  const welcomeForm = welcome.querySelector("form");
+  const nameInput = welcome.querySelector("input");
+
+  welcomeForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = nameInput.value.trim();
+
+    if (name) {
+      localStorage.setItem("amir-ibr-name", name);
+      welcome.remove();
+      showGreeting(name);
+    }
+  });
+
+  welcome.querySelector(".welcome-skip").addEventListener("click", function() {
+    welcome.remove();
+  });
+}
+
+// 8. Плавная прокрутка для всех внутренних ссылок сайта.
+document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+  link.addEventListener("click", function(event) {
+    const href = link.getAttribute("href");
+    if (!href || href === "#") return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});

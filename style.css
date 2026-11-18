@@ -1494,3 +1494,154 @@ h1 em,h2 em {
      font-size: 19px;
   }
 }
+
+
+/* Дополнительные интерактивные элементы */
+.theme-toggle {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: .25s;
+}
+.theme-toggle:hover { transform: rotate(18deg); background: rgba(128,128,128,.12); }
+
+.scroll-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 70;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: .3s;
+  box-shadow: 0 8px 28px rgba(0,0,0,.18);
+}
+.scroll-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.scroll-top:hover { background: var(--pink); color: white; transform: translateY(-3px); }
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(12px);
+}
+.welcome-box {
+  width: min(100%, 420px);
+  padding: 38px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 24px 80px rgba(0,0,0,.3);
+}
+.welcome-kicker { color: var(--pink); font-size: 11px; letter-spacing: .2em; margin-bottom: 14px; }
+.welcome-box h2 { font-size: 30px; margin-bottom: 10px; }
+.welcome-box p:not(.welcome-kicker) { color: var(--muted); line-height: 1.5; margin-bottom: 20px; }
+.welcome-box input {
+  width: 100%;
+  padding: 14px 15px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+}
+.welcome-box input:focus { border-color: var(--pink); }
+.welcome-box button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--grad);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.welcome-skip {
+  display: block;
+  margin: 14px auto 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+.greeting-toast {
+  position: fixed;
+  z-index: 130;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 13px 22px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: var(--surface2);
+  color: var(--text);
+  box-shadow: 0 8px 30px rgba(0,0,0,.2);
+  transition: opacity .4s, transform .4s;
+}
+.greeting-toast.hide { opacity: 0; transform: translate(-50%,-10px); }
+
+/* Светлая тема */
+body.light-theme {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --surface2: #edf0f6;
+  --text: #171824;
+  --muted: #626575;
+  --line: rgba(20,24,40,.12);
+  background: var(--bg);
+  color: var(--text);
+}
+body.light-theme .nav { background: rgba(245,246,250,.94); }
+body.light-theme .nav.scrolled { background: rgba(245,246,250,.82); }
+body.light-theme .nav-links a,
+body.light-theme .lang-btn,
+body.light-theme .eyebrow,
+body.light-theme .hero-lead,
+body.light-theme .tech-row span { color: #55596a; }
+body.light-theme .nav-links a:hover { color: var(--pink); }
+body.light-theme .glass,
+body.light-theme .learning-box,
+body.light-theme .label-top,
+body.light-theme .mobile-menu,
+body.light-theme .project-tags b,
+body.light-theme .project-tags a {
+  background-color: rgba(255,255,255,.82);
+  color: var(--text);
+}
+body.light-theme .glass { background: linear-gradient(135deg,rgba(255,255,255,.96),rgba(235,238,246,.88)); }
+body.light-theme .mobile-menu { background: rgba(245,246,250,.98); }
+body.light-theme .mobile-menu a,
+body.light-theme .close-menu { color: var(--text); }
+body.light-theme .menu-btn span { background: #303243; }
+body.light-theme .btn-ghost { color: var(--text); border-color: rgba(20,24,40,.2); }
+body.light-theme .btn-ghost:hover { background: rgba(20,24,40,.06); }
+body.light-theme .timeline-item:before { background: #d5d8e2; }
+body.light-theme .timeline-num { background: var(--bg); color: var(--text); }
+body.light-theme .dots i { background: #d0d3dd; }
+body.light-theme .footer { color: var(--text); }
+body.light-theme .loader { background: var(--bg); }
+body.light-theme .loader-line { background: #d7d9e2; }
+body.light-theme .label-top { background: rgba(255,255,255,.8); }
+@media (max-width: 600px) {
+  .welcome-box { padding: 28px 22px; }
+  .scroll-top { right: 16px; bottom: 16px; }
+}
